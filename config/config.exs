@@ -10,7 +10,7 @@ use Mix.Config
 
 config :voice_controller, port: 5683
 config :voice_controller, multicast_address: {239, 255, 41, 11}
-config :voice_controller, tty: "/dev/ttyUSB0"
+config :voice_controller, tty: "/dev/ttyAMA0"
 config :movi, speed: 9600
 
 # You can configure for your application as:

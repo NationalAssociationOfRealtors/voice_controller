@@ -5,7 +5,7 @@ defmodule VoiceController do
     def start(_type, _args) do
         {:ok, pid} = VoiceController.Supervisor.start_link()
         Movi.add_handler(VoiceController.Handler)
-        {:ok, pid}
+        {:ok, self}
     end
 
 end

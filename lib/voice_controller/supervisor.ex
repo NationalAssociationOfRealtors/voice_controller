@@ -11,7 +11,7 @@ defmodule VoiceController.Supervisor do
     def init(:ok) do
         children = [
             worker(Movi, [@tty]),
-            worker(VoiceController.UDPServer, []),
+            #worker(VoiceController.UDPServer, []),
         ]
         supervise(children, strategy: :one_for_one)
     end

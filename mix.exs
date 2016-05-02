@@ -14,7 +14,7 @@ defmodule VoiceController.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpoison],
+    [applications: [:logger, :httpoison, :nerves, :nerves_lib, :movi, :poison, :serial],
     mod: {VoiceController, []}]
   end
 
@@ -29,9 +29,11 @@ defmodule VoiceController.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
+        {:nerves, "~> 0.2"},
+        {:nerves_lib, github: "nerves-project/nerves_lib"},
         {:poison, "~> 2.1"},
         {:httpoison, "~> 0.8.3"},
-        {:movi, git: "https://github.com/NationalAssociationOfRealtors/movi"}
+        {:movi, github: "NationalAssociationOfRealtors/movi"}
     ]
   end
 end
