@@ -1,20 +1,28 @@
 defmodule VoiceController.Mixfile do
   use Mix.Project
 
+  @target "rpi2"
+
   def project do
     [app: :voice_controller,
      version: "0.0.1",
      elixir: "~> 1.2",
+     archives: [nerves_bootstrap: "~> 0.1"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     target: @target,
+     deps_path: "deps/#{@target}",
+     build_path: "_build/#{@target}",
+     config_path: "config/#{@target}/config.exs",
+     aliases: aliases,
+     deps: deps ++ system(@target)]
   end
 
   # Configuration for the OTP application
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpoison, :nerves, :nerves_lib, :movi, :poison, :serial],
+    [applications: [:logger, :httpoison, :nerves, :movi, :poison, :serial],
     mod: {VoiceController, []}]
   end
 
@@ -29,11 +37,19 @@ defmodule VoiceController.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-        {:nerves, "~> 0.2"},
-        {:nerves_lib, github: "nerves-project/nerves_lib"},
-        {:poison, "~> 2.1"},
-        {:httpoison, "~> 0.8.3"},
-        {:movi, github: "NationalAssociationOfRealtors/movi"}
+      {:nerves, github: "nerves-project/nerves", branch: "mix"},
+      {:poison, "~> 2.1"},
+      {:httpoison, "~> 0.8.3"},
+      {:movi, github: "NationalAssociationOfRealtors/movi"}
     ]
+  end
+
+  def system("rpi2") do
+    [{:nerves_system_rpi2, github: "nerves-project/nerves_system_rpi2"}]
+  end
+
+  def aliases do
+    ["deps.precompile": ["nerves.precompile", "deps.precompile"],
+     "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"]]
   end
 end
