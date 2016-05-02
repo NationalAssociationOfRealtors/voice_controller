@@ -13,6 +13,9 @@ config :voice_controller, multicast_address: {239, 255, 41, 11}
 config :voice_controller, tty: "/dev/ttyAMA0"
 config :movi, speed: 9600
 
+config :nerves, :firmware,
+  fwup_conf: "config/rpi2/fwup.conf"
+
 # You can configure for your application as:
 #
 #     config :voice_controller, key: :value

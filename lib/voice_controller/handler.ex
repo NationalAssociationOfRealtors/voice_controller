@@ -1,5 +1,6 @@
 defmodule VoiceController.Handler do
     use GenEvent
+    require Logger
     alias Movi.Event
     alias VoiceController.UDPServer
     alias VoiceController.UDPServer.Message
