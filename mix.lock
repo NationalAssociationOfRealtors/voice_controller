@@ -1,0 +1,10 @@
+%{"certifi": {:hex, :certifi, "0.4.0"},
+  "hackney": {:hex, :hackney, "1.6.0"},
+  "httpoison": {:hex, :httpoison, "0.8.3"},
+  "idna": {:hex, :idna, "1.2.0"},
+  "metrics": {:hex, :metrics, "1.0.1"},
+  "mimerl": {:hex, :mimerl, "1.0.2"},
+  "movi": {:git, "https://github.com/NationalAssociationOfRealtors/movi", "dd1458b1eeb2a74862dbd18fef23f2b54bda1fd3", []},
+  "poison": {:hex, :poison, "2.1.0"},
+  "serial": {:git, "https://github.com/bitgamma/elixir_serial.git", "0ea4220a2a44451f33b20cb2a71adb4265b29d61", [tag: "v0.1.2"]},
+  "ssl_verify_fun": {:hex, :ssl_verify_fun, "1.1.0"}}
